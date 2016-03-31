@@ -64,8 +64,8 @@ bool ClusterCounts::parse_and_analyze() {
             std::string s(m[0]);
             std::regex r("[[:d:]]{1,}");
             std::regex_search(s, m, r);
-            int id = stoi(m[0]);
-            __counts[id] = __counts[id] + 1;
+            //int id = stoi(m[0]);
+           // __counts[id] = __counts[id] + 1;
         }
 
         for (auto it = __counts.begin(); it != __counts.end(); ++it)
@@ -214,8 +214,8 @@ void test_point_getsetelem(ErrorContext &ec, unsigned int numRuns) {
             pass = true;
             for (int i = 0; i < 50; i ++) {
                 pass = pass &&
-                        (p.getValue(i) == 0.0) &&
-                        (p[i] == 0.0);
+                       (p.getValue(i) == 0.0) &&
+                       (p[i] == 0.0);
             }
             ec.result(pass);
         }
@@ -233,8 +233,8 @@ void test_point_getsetelem(ErrorContext &ec, unsigned int numRuns) {
             pass = true;
             for (int i = 0; i < 20; i ++)
                 pass = pass &&
-                        (p.getValue(i) == (13.43 * i * i + 4.567 * i + 1.234567)) &&
-                        (p[i] == (13.43 * i * i + 4.567 * i + 1.234567));
+                       (p.getValue(i) == (13.43 * i * i + 4.567 * i + 1.234567)) &&
+                       (p[i] == (13.43 * i * i + 4.567 * i + 1.234567));
             ec.result(pass);
         }
 
@@ -2518,7 +2518,7 @@ void test_cluster_centroid(ErrorContext &ec, unsigned int numRuns) { // TODO imp
             c1 -= c2;
 
             pass = c1.centroid.isValid() && c2.centroid.isValid() &&
-                    (c1.centroid.equal(c3.centroid.get()));
+                   (c1.centroid.equal(c3.centroid.get()));
 
             ec.result(pass);
         }
@@ -3223,7 +3223,7 @@ void test_kmeans_toofewpoints(ErrorContext &ec, unsigned int numRuns) {
             bool parse_success;
             pass = pass && (parse_success = cc.parse_and_analyze()) &&
                    (cc.get_num_clusters() < 2520) &&    // this is the only meaningful test for the number of clusters
-                                                        // the exact number will vary with implementation
+                   // the exact number will vary with implementation
                    (cc.get_num_points() == 2499);
 
             ec.result(pass);

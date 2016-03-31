@@ -23,7 +23,7 @@ namespace Clustering {
         static void rewindIdGen();
 
         Point(unsigned int);
-        Point(unsigned int, double *);
+        //Point(unsigned int, double *); Not needed? Was only for testing/debugging in PA2
 
         // Big three: cpy ctor, overloaded operator=, dtor
         Point(const Point &);
